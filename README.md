@@ -3,11 +3,13 @@ About r-mlr3cluster-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-mlr3cluster-feedstock/blob/main/LICENSE.txt)
 
-Home: https://mlr3cluster.mlr-org.com, https://github.com/mlr-org/mlr3cluster
+Home: https://mlr3cluster.mlr-org.com
 
 Package license: LGPL-3.0-only
 
 Summary: Extends the 'mlr3' package with cluster analysis.
+
+Development: https://github.com/mlr-org/mlr3cluster
 
 Current build status
 ====================
