@@ -1,4 +1,4 @@
-{% set version = "0.1.6" %}
+{% set version = "0.1.7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mlr3cluster_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mlr3cluster/mlr3cluster_{{ version }}.tar.gz
-  sha256: f49e2834333eea9ba785b0ae162e1c6a586ea10d25d5d712bb7d2fda4ad71abe
+  sha256: a413147211d2f3427ca5dc8894dde8af6c73f7c35c9e81deb47839e9fed2d116
 
 build:
   merge_build_host: true  # [win]
@@ -26,26 +26,28 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-r6
     - r-backports >=1.1.10
     - r-checkmate
     - r-clue
-    - r-clustercrit
+    - r-cluster
     - r-data.table
-    - r-mlr3 >=0.5.0
-    - r-mlr3misc >=0.4.0
+    - r-fpc
+    - r-mlr3 >=0.14.0
+    - r-mlr3misc >=0.9.4
     - r-paradox
+    - r-r6
   run:
     - r-base
-    - r-r6
     - r-backports >=1.1.10
     - r-checkmate
     - r-clue
-    - r-clustercrit
+    - r-cluster
     - r-data.table
-    - r-mlr3 >=0.5.0
-    - r-mlr3misc >=0.4.0
+    - r-fpc
+    - r-mlr3 >=0.14.0
+    - r-mlr3misc >=0.9.4
     - r-paradox
+    - r-r6
 
 test:
   commands:
@@ -53,7 +55,8 @@ test:
     - "\"%R%\" -e \"library('mlr3cluster')\""  # [win]
 
 about:
-  home: https://mlr3cluster.mlr-org.com, https://github.com/mlr-org/mlr3cluster
+  home: https://mlr3cluster.mlr-org.com
+  dev_url: https://github.com/mlr-org/mlr3cluster
   license: LGPL-3.0-only
   summary: Extends the 'mlr3' package with cluster analysis.
   license_family: LGPL
@@ -64,24 +67,3 @@ extra:
   recipe-maintainers:
     - conda-forge/r
     - pascal-git
-
-# Package: mlr3cluster
-# Title: Cluster Extension for 'mlr3'
-# Version: 0.1.1
-# Authors@R: c(person(given = "Damir", family = "Pulatov", role = c("cre", "aut"), email = "damirpolat@protonmail.com"), person(given = "Michel", family = "Lang", role = "aut", email = "michellang@gmail.com", comment = c(ORCID = "0000-0001-9754-0393")))
-# Description: Extends the 'mlr3' package with cluster analysis.
-# License: LGPL-3
-# URL: https://mlr3cluster.mlr-org.com, https://github.com/mlr-org/mlr3cluster
-# BugReports: https://github.com/mlr-org/mlr3cluster/issues
-# Depends: R (>= 3.1.0)
-# Imports: backports (>= 1.1.10), checkmate, clue, clusterCrit, data.table, mlr3 (>= 0.5.0), mlr3misc (>= 0.4.0), paradox, R6
-# Suggests: dbscan, e1071, ClusterR, kernlab, apcluster, LPCM, mlbench, RWeka, testthat
-# Encoding: UTF-8
-# RoxygenNote: 7.1.1
-# Collate: 'LearnerClust.R' 'LearnerClustAffinityPropagation.R' 'LearnerClustAgnes.R' 'LearnerClustCMeans.R' 'LearnerClustCobweb.R' 'LearnerClustDBSCAN.R' 'LearnerClustDiana.R' 'LearnerClustEM.R' 'LearnerClustFanny.R' 'LearnerClustFarthestFirst.R' 'LearnerClustFeatureless.R' 'LearnerClustKKMeans.R' 'LearnerClustKMeans.R' 'LearnerClustMeanShift.R' 'LearnerClustMiniBatchKMeans.R' 'LearnerClustPAM.R' 'LearnerClustSimpleKMeans.R' 'LearnerClustXMeans.R' 'MeasureClust.R' 'measures.R' 'MeasureClustInternal.R' 'PredictionClust.R' 'PredictionDataClust.R' 'TaskClust.R' 'TaskClust_usarrest.R' 'helper.R' 'zzz.R'
-# NeedsCompilation: no
-# Packaged: 2020-11-15 17:45:45 UTC; damir
-# Author: Damir Pulatov [cre, aut], Michel Lang [aut] (<https://orcid.org/0000-0001-9754-0393>)
-# Maintainer: Damir Pulatov <damirpolat@protonmail.com>
-# Repository: CRAN
-# Date/Publication: 2020-11-15 23:40:06 UTC
